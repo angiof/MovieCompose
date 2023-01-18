@@ -93,7 +93,11 @@ fun Recy(pelicula: List<Pelicula>) {
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ListItemsRecy(pelicula: Pelicula, modifier: Modifier = Modifier) {
+    val context = LocalContext.current
     ListItem(
+        modifier = modifier.clickable {
+            Toast.makeText(context, pelicula.punteggio, Toast.LENGTH_SHORT).show()
+        },
         text = { Text(text = pelicula.nome, style = MaterialTheme.typography.h6) },
         secondaryText = {
             Text(
